@@ -1,0 +1,136 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Remote Launch OpenOCD",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceFolder}/build/firmware.elf",
+      "request": "launch",
+      "servertype": "external",
+      "gdbPath": "arm-none-eabi-gdb",
+      "gdbTarget": "${input:remoteIP}:${input:getPort}",
+      "runToEntryPoint": "main",
+      // Work around for stopping at main on restart
+      "postRestartCommands": [
+        "break main",
+        "continue"
+      ],
+      "preLaunchTask": "Start-Remote-OpenOCD"
+    },
+    {
+      "name": "Remote Attach OpenOCD",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceFolder}/build/firmware.elf",
+      "request": "attach",
+      "servertype": "external",
+      "gdbPath": "arm-none-eabi-gdb",
+      "gdbTarget": "${input:remoteIP}:${input:getPort}",
+      "runToEntryPoint": "main",
+      "postRestartCommands": [
+        "break main",
+        "continue"
+      ],
+      "preLaunchTask": "Start-Remote-OpenOCD"
+    },
+    {
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/firmware.elf",
+      "name": "Local Launch OpenOCD",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "openocd",
+      "configFiles": [
+        "${workspaceFolder}/stlink-dap.cfg",
+        "${workspaceFolder}/stm32f4x.cfg"
+      ],
+      "serverArgs": [
+        "-c",
+        "init; arm semihosting enable"
+      ],
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "both",
+      "svdFile": "${workspaceFolder}/STM32F405.svd",
+      "serialNumber": "${input:stlink_id}",
+      "breakAfterReset": false
+    },
+    {
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/firmware.elf",
+      "name": "Local Attach OpenOCD",
+      "request": "attach",
+      "type": "cortex-debug",
+      "servertype": "openocd",
+      "configFiles": [
+        "${workspaceFolder}/stlink-dap.cfg",
+        "${workspaceFolder}/stm32f4x.cfg"
+      ],
+      "serverArgs": [
+        "-c",
+        "init; arm semihosting enable"
+      ],
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "both",
+      "svdFile": "${workspaceFolder}/STM32F405.svd",
+      "serialNumber": "${input:stlink_id}",
+      "breakAfterReset": false
+    },
+    {
+      "name": "Launch ST-GDB",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/firmware.elf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "servertype": "stlink",
+      "serialNumber": "${input:stlink_id}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "remoteIP",
+      "type": "pickString",
+      "description": "Enter the IP address of the remote machine",
+      "options": [
+        {
+          "label": "VPN",
+          "value": "10.10.0.6"
+        },
+        {
+          "label": "Local",
+          "value": "192.168.20.2"
+        }
+      ],
+      "default": "10.10.0.6"
+    },
+    {
+      "id": "remotePort",
+      "type": "promptString",
+      "description": "Enter the port number for the gdb",
+      "default": "50000"
+    },
+    {
+      "id": "getPort",
+      "type": "command",
+      "command": "shellCommand.execute",
+      "args": {
+        "command": "shuf -i 50001-59999 -n 1 > .vscode/gdb-port.txt && cat .vscode/gdb-port.txt",
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "WORKSPACE": "${workspaceFolder[0]}",
+        }
+      }
+    },
+    {
+      "id": "stlink_id",
+      "type": "promptString",
+      "description": "Enter the ST-Link ID",
+      // HERE set the serial number of the ST-Link of your board, for local programming
+      "default": "49FF6D064978785146441667"
+    },
+  ]
+}
