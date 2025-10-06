@@ -11,6 +11,10 @@ cmake_minimum_required(VERSION 3.22)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
+
+
+############################################################################################################
+# C++ Configuration  [1/4]
 set(CMAKE_CXX_STANDARD 20)
 
 
@@ -44,13 +48,8 @@ message("Build type: " ${CMAKE_BUILD_TYPE})
 add_executable(${CMAKE_PROJECT_NAME})
 
 
-
-
-
-set(STMEPIC_FDCAN OFF)
-# set(STMEPIC_GENERATE_DOCS ON)
 set(STMEPIC_MIN_VERSION_REQUIRED_ENABLED ON)
-set(STMEPIC_MIN_VERSION_REQUIRED 2.318)
+set(STMEPIC_MIN_VERSION_REQUIRED 2.330)
 
 add_subdirectory(src/StmEpic)
 
