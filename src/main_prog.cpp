@@ -58,22 +58,22 @@ se::GpioPin pin_i2c_adr_2(*GPIOC, GPIO_PIN_9);
 ////////////////////////////////////////////////////////////////////////////////
 /// ALTMODE PINS
 
-se::GpioPin pin_gate_h1(*GATE_H1_GPIO_Port, GATE_H1_Pin);
-se::GpioPin pin_gate_h2(*GATE_H2_GPIO_Port, GATE_H2_Pin);
-se::GpioPin pin_gate_h3(*GATE_H3_GPIO_Port, GATE_H3_Pin);
-se::GpioPin pin_gate_l1(*GATE_L1_GPIO_Port, GATE_L1_Pin);
-se::GpioPin pin_gate_l2(*GATE_L2_GPIO_Port, GATE_L2_Pin);
-se::GpioPin pin_gate_l3(*GATE_L3_GPIO_Port, GATE_L3_Pin);
-se::GpioPin pin_gpio_fault(*GPIO_FAULT_GPIO_Port, GPIO_FAULT_Pin);
-se::GpioPin pin_current1_adc(*ADC_CURRENT_1_GPIO_Port, ADC_CURRENT_1_Pin);
-se::GpioPin pin_current2_adc(*ADC_CURRENT_2_GPIO_Port, ADC_CURRENT_2_Pin);
-se::GpioPin pin_current3_adc(*ADC_CURRENT_3_GPIO_Port, ADC_CURRENT_3_Pin);
-se::GpioPin pin_adc_1(*ADC_1_GPIO_Port, ADC_1_Pin);
-se::GpioPin pin_voltage1_adc(*VOLTAGE_1_GPIO_Port, VOLTAGE_1_Pin);
-se::GpioPin pin_voltage2_adc(*VOLTAGE_2_GPIO_Port, VOLTAGE_2_Pin);
-se::GpioPin pin_voltage3_adc(*VOLTAGE_3_GPIO_Port, VOLTAGE_3_Pin);
-se::GpioPin pin_temp_adc(*ADC_TEMP_GPIO_Port, ADC_TEMP_Pin);
-se::GpioPin pin_temp_motor_adc(*ADC_TEMPMOTOR_GPIO_Port, ADC_TEMPMOTOR_Pin);
+se::GpioPin pin_a1_gate_h1(*GATE_H1_GPIO_Port, GATE_H1_Pin);
+se::GpioPin pin_a2_gate_h2(*GATE_H2_GPIO_Port, GATE_H2_Pin);
+se::GpioPin pin_a3_gate_h3(*GATE_H3_GPIO_Port, GATE_H3_Pin);
+se::GpioPin pin_a4_gate_l1(*GATE_L1_GPIO_Port, GATE_L1_Pin);
+se::GpioPin pin_a5_gate_l2(*GATE_L2_GPIO_Port, GATE_L2_Pin);
+se::GpioPin pin_a6_gate_l3(*GATE_L3_GPIO_Port, GATE_L3_Pin);
+se::GpioPin pin_a7_gpio_fault(*GPIO_FAULT_GPIO_Port, GPIO_FAULT_Pin);
+se::GpioPin pin_a8_current1_adc(*ADC_CURRENT_1_GPIO_Port, ADC_CURRENT_1_Pin);
+se::GpioPin pin_a9_current2_adc(*ADC_CURRENT_2_GPIO_Port, ADC_CURRENT_2_Pin);
+se::GpioPin pin_a10_current3_adc(*ADC_CURRENT_3_GPIO_Port, ADC_CURRENT_3_Pin);
+se::GpioPin pin_a11_adc_1(*ADC_1_GPIO_Port, ADC_1_Pin);
+se::GpioPin pin_a12_voltage1_adc(*VOLTAGE_1_GPIO_Port, VOLTAGE_1_Pin);
+se::GpioPin pin_a13_voltage2_adc(*VOLTAGE_2_GPIO_Port, VOLTAGE_2_Pin);
+se::GpioPin pin_a14_voltage3_adc(*VOLTAGE_3_GPIO_Port, VOLTAGE_3_Pin);
+se::GpioPin pin_a15_temp_adc(*ADC_TEMP_GPIO_Port, ADC_TEMP_Pin);
+se::GpioPin pin_a16_temp_motor_adc(*ADC_TEMPMOTOR_GPIO_Port, ADC_TEMPMOTOR_Pin);
 
 ///////////////////////////////////////////////////////////////////////////////
 /// ADDITIONAL PINS

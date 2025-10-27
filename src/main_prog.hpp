@@ -53,22 +53,22 @@ extern se::GpioPin pin_i2c_adr_2;
 ////////////////////////////////////////////////////////////////////////////////
 /// ALTMODE PINS
 
-extern se::GpioPin pin_gate_h1;
-extern se::GpioPin pin_gate_h2;
-extern se::GpioPin pin_gate_h3;
-extern se::GpioPin pin_gate_l1;
-extern se::GpioPin pin_gate_l2;
-extern se::GpioPin pin_gate_l3;
-extern se::GpioPin pin_gpio_fault;
-extern se::GpioPin pin_current1_adc;
-extern se::GpioPin pin_current2_adc;
-extern se::GpioPin pin_current3_adc;
-extern se::GpioPin pin_adc_1;
-extern se::GpioPin pin_voltage1_adc;
-extern se::GpioPin pin_voltage2_adc;
-extern se::GpioPin pin_voltage3_adc;
-extern se::GpioPin pin_temp_adc;
-extern se::GpioPin pin_temp_motor_adc;
+extern se::GpioPin pin_a1_gate_h1;
+extern se::GpioPin pin_a2_gate_h2;
+extern se::GpioPin pin_a3_gate_h3;
+extern se::GpioPin pin_a4_gate_l1;
+extern se::GpioPin pin_a5_gate_l2;
+extern se::GpioPin pin_a6_gate_l3;
+extern se::GpioPin pin_a7_gpio_fault;
+extern se::GpioPin pin_a8_current1_adc;
+extern se::GpioPin pin_a9_current2_adc;
+extern se::GpioPin pin_a10_current3_adc;
+extern se::GpioPin pin_a11_adc_1;
+extern se::GpioPin pin_a12_voltage1_adc;
+extern se::GpioPin pin_a13_voltage2_adc;
+extern se::GpioPin pin_a14_voltage3_adc;
+extern se::GpioPin pin_a15_temp_adc;
+extern se::GpioPin pin_a16_temp_motor_adc;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// ADDITIONAL PINS
