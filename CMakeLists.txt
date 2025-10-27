@@ -71,6 +71,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
   # Add user sources here
   src/main_prog.cpp
   src/main_callbacks.cpp
+    src/module.cpp
 
 )
 
