@@ -32,6 +32,11 @@ se::Status init_board() {
                                      tskIDLE_PRIORITY + 1, "ModuleControlLoop");
   task_module_control_loop.task_run();
 
+  module->start_driver();
+
+  // To access interface variables.
+  // module->get_interface()
+
   ////////////////////////////////////////////////////////////////////////////
   /// PLACE FOR YOUR CUSTOM MODULES INITIALIZATION
 

@@ -61,16 +61,49 @@ You can always create your own files and include them in CMakeLists.txt .
  in **"inputs" -> "stlinkID" -> "options"** you can add multiple stlink ids if you have multiple boards with the same software, You can add them some fancy names to recognize them easel.
 
 
+If you want to keep it by creating a new branch, this may be a good time
 # black magic
 soon to be added
 
 
-# Generate Interface
-Generate dummy interface
+# ModuCard Generate Interface
+1. Generate dummy interface only required to be run once.
 ```bash
 python3 src/moducard_firmware/moducard_generators/mc_generator.py -f -d --force  src/moducard_firmware/moducard_generators/modules/mcan_basic_module_dummy.yaml
 ```
-Generate real interface
+2. Generate real interface for the module you are working on. You should use the example **src/moducard_firmware/moducard_generators/examples/example_module_config.yaml** as a template for your module configuration.
 ```bash
-python3 src/moducard_firmware/moducard_generators/mc_generator.py -f --force  example_module_config.yaml
+python3 src/moducard_firmware/moducard_generators/mc_generator.py -f --force  your_module_config.yaml
+```
+3. This will generate the interface files in **generated/firmware**. 
+Now you can add include in **module.hpp**
+```cpp
+#include "your_generated_interface.hpp"
+```
+4. Change the code in **module.hpp** to use the generated interface namespace.
+in the **ModuleType** line; 
+```cpp
+using ModuleType = mcan::your_generated_interface ... ;
+```
+5. Add write callbacks for the generated interface.
+the callbacks that are listed in a generated file called **your_generated_interface.hpp**
+In a class called **McCanSlaveInterface_t** after the  **//Write callbacks** comment.
+The callback function are called when the master updates the interface variables. You can use them to update your module variables or perform any actions needed when the master sends new values.
+For example, if you have a variable called **my_variable** in your generated interface, you
+have to add a callback function for it like this:
+```cpp
+mcan::your_generated_interface::McCanSlaveInterface_t::callback_write_my_variable(MyVariable& ver){
+  // ver - is the new value sent by the master for my_variable
+  // you can add some actions here.
+  // ...
+} 
+```
+
+6. Now you can use the generated interface in your module code. You can access the interface variables and functions through the **module->get_interface()** function. For example, if you have a variable called **my_variable** in your generated interface, you can access it like this:
+```cpp
+module->get_interface().my_variable
+```
+This variables are automatically updated when the master sends new values for them, and you can also update them so the master driver will be able to read the new values. To update the variable, you can simply assign a new value to it like this:
+```cpp
+module->get_interface().my_variable = new_value;
 ```
