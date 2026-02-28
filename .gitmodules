@@ -1,6 +1,3 @@
-[submodule "src/ModuCard-software-base"]
-	path = src/ModuCard-software-base
-	url = git@github.com:KoNarRobotics/ModuCard-software-base.git
 [submodule "src/StmEpic"]
 	path = src/StmEpic
 	url = git@github.com:X-Lemon-X/StmEpic.git

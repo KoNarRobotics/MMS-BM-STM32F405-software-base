@@ -34,12 +34,17 @@ se::SimpleTask task_module_control_loop;
 // the 'motor_hat' part to your module name
 //
 
-#include "motor_hat.hpp"
+/*
 
+//   paste modified version of this below
+
+
+#include "motor_hat.hpp"
 using ModuleType = mcan::McSlaveDriver<mcan::motor_hat::McCanSlaveInterface_t,
                                        mcan::motor_hat::Hardware_t>;
-
 extern std::shared_ptr<ModuleType> module;
+
+*/
 
 // Don;t forget to implement the write callbacks for your module in the
 // module.cpp file
