@@ -36,7 +36,6 @@ se::Status init_board() {
 
   // To access interface variables.
   // module->get_interface()
-
   ////////////////////////////////////////////////////////////////////////////
   /// PLACE FOR YOUR CUSTOM MODULES INITIALIZATION
 
